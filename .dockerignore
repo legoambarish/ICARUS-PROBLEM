@@ -1,0 +1,18 @@
+.git
+crash_report.json
+sim.out
+sim.err
+smoke.err
+
+# Reviewer-only documents — must never ship inside the candidate image
+icarus_round2_writeup.tex
+CONSTANTS.md
+TODO.md
+grade_icarus.sh
+
+# CI workflow — not used (manual grading); contents reveal grading thresholds
+.github/
+
+# Build artifacts that should not be shipped inside the image
+*.tar
+*.tar.gz
