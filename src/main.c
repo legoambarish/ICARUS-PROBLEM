@@ -49,6 +49,13 @@ int main(void) {
     state.target_heater_pwm = 0.0;
     state.target_wheel_rpm = 0.0;
 
+    /* --- FAULT INJECTION (fault-injection branch only) ---
+       Deliberately commands the heater to full power and the reaction
+       wheel to maximum RPM, held for the entire run, to induce a
+       correlated thermal + vibration structural failure.
+       Predicted crash tick: 326 (see DOCUMENTATION.md for reasoning). */
+    cmd_set_actuators(100.0, 5000.0);
+
     for (state.tick = 1; state.tick <= TOTAL_TICKS; ++state.tick) {
         state.orbit_index = ((state.tick - 1U) / TICKS_PER_ORBIT) + 1U;
         scheduler_run_tick(&state);
