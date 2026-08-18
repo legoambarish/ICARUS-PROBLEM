@@ -53,7 +53,9 @@ int main(void) {
        Deliberately commands the heater to full power and the reaction
        wheel to maximum RPM, held for the entire run, to induce a
        correlated thermal + vibration structural failure.
-       Predicted crash tick: 326 (see DOCUMENTATION.md for reasoning). */
+       Predicted crash tick: 325 (see DOCUMENTATION.md for reasoning;
+       exact arithmetic gives 326, floating-point rounding in the
+       repeated 0.25 - 0.05 accumulation shifts it one tick earlier). */
     cmd_set_actuators(100.0, 5000.0);
 
     for (state.tick = 1; state.tick <= TOTAL_TICKS; ++state.tick) {
