@@ -33,7 +33,7 @@ def main() -> int:
                 if count > 0:
                     break
                 continue
-            payload = struct.unpack("___", data)
+            payload = struct.unpack("IhdH", data)
             tick, temperature_raw, battery_voltage, crc = payload
             expected = crc16_ccitt(data[:-2])
             status = "CRC_OK" if expected == crc else "CRC_BAD"
