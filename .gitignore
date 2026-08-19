@@ -1,3 +1,4 @@
 obc_sim
 *.o
 crash_report.json
+.handoff/
